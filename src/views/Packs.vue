@@ -1,7 +1,6 @@
 <template>
   <div class="packs">
     <h1>Packs Page</h1>
-    <v-navigation-drawer app v-if="isLoggedIn"/>
     <v-container align-content-space-around class="blue-grey darken" app>
       <v-layout row wrap>
         <v-spacer/>

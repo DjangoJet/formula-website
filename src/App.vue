@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <NavBar/>
+    <NavBar v-if="!isLoggedIn"/>
+    <LogNavBar v-if="isLoggedIn"/>
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -9,10 +10,12 @@
 
 <script>
 import NavBar from './components/NavBar.vue'
+import LogNavBar from './components/LogNavBar.vue'
 export default {
   name: 'App',
   components: {
-    NavBar
+    NavBar,
+    LogNavBar
   },
   created: function () {
     this.$http.interceptors.response.use(undefined, function (err) {
@@ -23,6 +26,9 @@ export default {
         throw err;
       });
     });
+  },
+  computed : {
+    isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
   }
 }
 </script>

@@ -37,13 +37,6 @@
     >
       <span class="mr-2">Login</span>
     </v-btn>
-    <v-btn
-    v-if="isLoggedIn"
-      flat
-      @click="logout"
-    >
-      <span class="mr-2">Logout</span>
-    </v-btn>
   </v-toolbar>
 </template>
 

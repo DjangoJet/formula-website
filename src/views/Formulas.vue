@@ -1,6 +1,5 @@
 <template>
   <div class="formulas">
-    <v-navigation-drawer app v-if="isLoggedIn"/>
     <h1>Formulas Page</h1>
     <v-container align-content-space-around class="blue-grey darken" app>
       <v-layout row wrap>
