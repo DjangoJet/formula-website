@@ -3,10 +3,19 @@ import './plugins/vuetify'
 import App from './App.vue'
 import { router } from './router'
 
-import { store } from './store/store'
+import store from './store/store'
 
-import VueResource from 'vue-resource'
-Vue.use(VueResource)
+//import VueResource from 'vue-resource'
+//Vue.use(VueResource)
+
+import Axios from 'axios'
+Vue.prototype.$http = Axios
+
+const token = localStorage.getItem('token')
+
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
 
 Vue.config.productionTip = false
 

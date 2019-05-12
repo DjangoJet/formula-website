@@ -31,10 +31,18 @@
     </v-btn>
     <v-spacer/>
     <v-btn
+    v-if="!isLoggedIn"
       flat
       :href="addToHost(endpoint.login)"
     >
       <span class="mr-2">Login</span>
+    </v-btn>
+    <v-btn
+    v-if="isLoggedIn"
+      flat
+      @click="logout"
+    >
+      <span class="mr-2">Logout</span>
     </v-btn>
   </v-toolbar>
 </template>
@@ -56,7 +64,16 @@ export default {
   methods: {
     addToHost: function(added) {
       return this.host+added
+    },
+    logout: function () {
+      this.$store.dispatch('logout')
+      .then(() => {
+        this.$router.push('/login')
+      })
     }
+  },
+  computed : {
+    isLoggedIn : function(){ return this.$store.getters.isLoggedIn}
   }
 }
 </script>

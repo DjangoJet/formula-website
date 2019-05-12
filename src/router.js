@@ -19,18 +19,12 @@ export const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
-      meta: {
-        guest: true
-      }
+      component: Home
     },
     {
       path: '/variables',
       name: 'variables',
-      component: Variables,
-      meta: {
-        guest: true
-      }
+      component: Variables
     },
     {
       path: '/formulas',
@@ -82,7 +76,7 @@ export const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (localStorage.getItem('jwt') == null) {
+    if (localStorage.getItem('token') == null) {
       next({
         path: '/login',
         params: { nextUrl: to.fullPath }
@@ -101,7 +95,7 @@ router.beforeEach((to, from, next) => {
       }
     }
   } else if (to.matched.some(record => record.meta.guest)) {
-    if (localStorage.getItem('jwt') == null) {
+    if (localStorage.getItem('token') == null) {
       next()
     }
     else {

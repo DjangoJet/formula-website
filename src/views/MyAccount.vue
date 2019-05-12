@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <h1>Home Page</h1>
+    <h1>Profil Page</h1>
+    <v-btn>fasldkjfl;asjf</v-btn>
   </div>
 </template>
 
