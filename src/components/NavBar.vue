@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar dark>
+  <v-toolbar flat app dark>
     <v-toolbar-side-icon
       class="hidden-lg-and-up"
       @click="drawer = true"

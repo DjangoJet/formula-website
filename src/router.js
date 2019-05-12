@@ -34,10 +34,7 @@ export const router = new Router({
     {
       path: '/packs',
       name: 'packs',
-      component: Packs,
-      meta: {
-        guest: true
-      }
+      component: Packs
     },
     {
       path: '/packs/:id',
